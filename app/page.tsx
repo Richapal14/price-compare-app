@@ -9,22 +9,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const handleSearch = async (e: React.FormEvent) => {
-    // New function for Quick Categories
-  const handleQuickSearch = async (searchTerm: string) => {
-    setQuery(searchTerm); // Updates the text in the input box
-    setLoading(true);
-    setResults([]);
-
-    try {
-      const res = await fetch(`/api/compare?q=${encodeURIComponent(searchTerm)}`);
-      const data = await res.json();
-      setResults(data);
-    } catch (error) {
-      console.error("Search failed", error);
-    } finally {
-      setLoading(false);
-    }
-  };
     e.preventDefault();
     if (!query) return;
 
@@ -69,34 +53,6 @@ export default function Home() {
           <p className="text-gray-500 text-lg">Find the lowest prices across top Indian stores.</p>
           
           <form onSubmit={handleSearch} className="flex flex-col md:flex-row gap-3 bg-white p-2 rounded-2xl shadow-inner border mt-8">
-            {/* --- NEW: Quick Search Categories --- */}
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <button 
-              onClick={() => handleQuickSearch('iPhone 15')}
-              className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-4 py-2 rounded-full text-sm font-medium transition backdrop-blur-sm flex items-center gap-2"
-            >
-              📱 Top Smartphones
-            </button>
-            <button 
-              onClick={() => handleQuickSearch('Sony Headphones')}
-              className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-4 py-2 rounded-full text-sm font-medium transition backdrop-blur-sm flex items-center gap-2"
-            >
-              🎧 Audio & Earbuds
-            </button>
-            <button 
-              onClick={() => handleQuickSearch('Smart Watches')}
-              className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-4 py-2 rounded-full text-sm font-medium transition backdrop-blur-sm flex items-center gap-2"
-            >
-              ⌚ Smart Watches
-            </button>
-            <button 
-              onClick={() => handleQuickSearch('Gaming Laptops')}
-              className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-4 py-2 rounded-full text-sm font-medium transition backdrop-blur-sm flex items-center gap-2"
-            >
-              💻 Laptops
-            </button>
-          </div>
-          {/* ------------------------------------ */}
             <input 
               type="text" 
               value={query}
