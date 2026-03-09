@@ -173,7 +173,7 @@ export default function Home() {
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-3"><Mail className="text-blue-500" /> contact@myshopping.com</div>
-              <div className="flex items-center gap-3"><MapPin className="text-blue-500" /> Varanasi, Uttar Pradesh, India</div>
+              
             </div>
           </div>
           
