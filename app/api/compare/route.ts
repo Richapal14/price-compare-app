@@ -57,16 +57,7 @@ try {
     console.log("Flipkart scrape failed");
     }
 
-    // --- 3. BACKUP PLAN (Crucial for Local Testing) ---
-    // Amazon and Flipkart often block simple bots. If they block us right now, 
-    // we will generate realistic estimate data so your website doesn't crash!
-    if (results.length === 0) {
-    results.push(
-        { platform: 'Amazon', price: Math.floor(Math.random() * 50000) + 10000, link: `https://www.amazon.in/s?k=${query}` },
-        { platform: 'Flipkart', price: Math.floor(Math.random() * 50000) + 9500, link: `https://www.flipkart.com/search?q=${query}` },
-        { platform: 'Meesho', price: Math.floor(Math.random() * 50000) + 9000, link: `https://www.meesho.com/search?q=${query}` }
-    );
-    }
+    
 
     // Sort so the cheapest is always at the top!
     results.sort((a, b) => a.price - b.price);
