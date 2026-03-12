@@ -13,12 +13,15 @@ if (!query) {
 try {
     const results = [];
 
-    // --- 1. Try to Scrape Amazon ---
+    // --- 1. Scrape Amazon via Free Proxy ---
     try {
     const amazonUrl = `https://www.amazon.in/s?k=${encodeURIComponent(query)}`;
-    const { data: amazonHtml } = await axios.get(amazonUrl, {
+      // The Magic Trick: Wrapping the URL in a free proxy!
+    const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(amazonUrl)}`;
+    
+    const { data: amazonHtml } = await axios.get(proxyUrl, {
         headers: { 
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' 
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36' 
         }
     });
     const $ = cheerio.load(amazonHtml);
@@ -32,15 +35,18 @@ try {
         });
     }
     } catch (e) {
-    console.log("Amazon scrape failed");
+    console.log("Amazon proxy scrape failed");
     }
 
-    // --- 2. Try to Scrape Flipkart ---
+    // --- 2. Scrape Flipkart via Free Proxy ---
     try {
     const flipkartUrl = `https://www.flipkart.com/search?q=${encodeURIComponent(query)}`;
-    const { data: flipkartHtml } = await axios.get(flipkartUrl, {
+      // Wrapping Flipkart URL in the proxy
+    const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(flipkartUrl)}`;
+
+    const { data: flipkartHtml } = await axios.get(proxyUrl, {
         headers: { 
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' 
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36' 
         }
     });
     const $$ = cheerio.load(flipkartHtml);
@@ -54,14 +60,12 @@ try {
         });
     }
     } catch (e) {
-    console.log("Flipkart scrape failed");
+    console.log("Flipkart proxy scrape failed");
     }
 
-    
-
-    // Sort so the cheapest is always at the top!
+    // Sort cheapest to top
     results.sort((a, b) => a.price - b.price);
-
+    
     return NextResponse.json(results);
 
 } catch (error) {
