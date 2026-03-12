@@ -172,19 +172,20 @@ export default function Home() {
               Your ultimate shopping companion. Never miss a discount again.
             </p>
             <div className="space-y-4">
-              <div className="flex items-center gap-3"><Mail className="text-blue-500" /> contact@myshopping.com</div>
+              <div className="flex items-center gap-3"><Mail className="text-blue-500" /> richa007up@gmail.com</div>
               
             </div>
           </div>
           
           <div className="bg-gray-800 p-8 rounded-2xl">
             <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-              <input type="text" placeholder="Your Name" className="w-full p-3 rounded-xl bg-gray-700 border-none outline-none text-white focus:ring-2 focus:ring-blue-500" />
-              <input type="email" placeholder="Email Address" className="w-full p-3 rounded-xl bg-gray-700 border-none outline-none text-white focus:ring-2 focus:ring-blue-500" />
-              <textarea placeholder="How can we help?" className="w-full p-3 rounded-xl bg-gray-700 border-none outline-none text-white focus:ring-2 focus:ring-blue-500 h-24 resize-none"></textarea>
-              <button className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-xl w-full transition">Send Message</button>
-            </form>
+          <form action="https://formsubmit.co/richa007up@gmail.com" method="POST" className="space-y-4">
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="name" required placeholder="Your Name" className="w-full p-3 rounded-xl bg-gray-700 border-none outline-none text-white focus:ring-2 focus:ring-blue-500" />
+          <input type="email" name="email" required placeholder="Email Address" className="w-full p-3 rounded-xl bg-gray-700 border-none outline-none text-white focus:ring-2 focus:ring-blue-500" />
+          <textarea name="message" required placeholder="How can we help?" className="w-full p-3 rounded-xl bg-gray-700 border-none outline-none text-white focus:ring-2 focus:ring-blue-500 h-24 resize-none"></textarea>
+          <button type="submit" className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-xl w-full transition">Send Message</button>
+        </form>
           </div>
         </div>
         <div className="border-t border-gray-800 mt-16 pt-8 text-center text-gray-500 text-sm">
