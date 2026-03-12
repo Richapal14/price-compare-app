@@ -179,7 +179,7 @@ export default function Home() {
           
           <div className="bg-gray-800 p-8 rounded-2xl">
             <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
-          <form action="https://formsubmit.co/richa007up@gmail.com" method="POST" className="space-y-4">
+          <form action="https://formsubmit.co/myshopping606@gmail.com" method="POST" className="space-y-4">
           <input type="hidden" name="_captcha" value="false" />
           <input type="text" name="name" required placeholder="Your Name" className="w-full p-3 rounded-xl bg-gray-700 border-none outline-none text-white focus:ring-2 focus:ring-blue-500" />
           <input type="email" name="email" required placeholder="Email Address" className="w-full p-3 rounded-xl bg-gray-700 border-none outline-none text-white focus:ring-2 focus:ring-blue-500" />
