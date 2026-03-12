@@ -172,7 +172,7 @@ export default function Home() {
               Your ultimate shopping companion. Never miss a discount again.
             </p>
             <div className="space-y-4">
-              <div className="flex items-center gap-3"><Mail className="text-blue-500" /> richa007up@gmail.com</div>
+              <div className="flex items-center gap-3"><Mail className="text-blue-500" /> myshopping606@gmail.com</div>
               
             </div>
           </div>
